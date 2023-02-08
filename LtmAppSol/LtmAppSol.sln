@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LtmApp.DAL", "LtmApp.DAL\LtmApp.DAL.csproj", "{7986406F-D482-4246-945D-F38E1B283BC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LtmApp.DAL", "LtmApp.DAL\LtmApp.DAL.csproj", "{7986406F-D482-4246-945D-F38E1B283BC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LtmApp.BL", "LtmApp.BL\LtmApp.BL.csproj", "{95805F54-DA9E-4668-9800-E6FBA6647C7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LtmApp.BL", "LtmApp.BL\LtmApp.BL.csproj", "{95805F54-DA9E-4668-9800-E6FBA6647C7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LtmApp.SL", "LtmApp.SL\LtmApp.SL.csproj", "{A8871A0D-8A59-4349-827E-5FCFFFEB1DF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LtmApp.SL", "LtmApp.SL\LtmApp.SL.csproj", "{A8871A0D-8A59-4349-827E-5FCFFFEB1DF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LtmApp.Web", "LtmApp.Web\LtmApp.Web.csproj", "{E5782B1A-3E16-43A7-ADF7-BFFD9996C332}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LtmApp.Web", "LtmApp.Web\LtmApp.Web.csproj", "{E5782B1A-3E16-43A7-ADF7-BFFD9996C332}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LtmApp.Api", "LtmApp.Api\LtmApp.Api.csproj", "{EF9BBEE4-663B-4D1E-B728-CAED4283830A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LtmApp.Api", "LtmApp.Api\LtmApp.Api.csproj", "{EF9BBEE4-663B-4D1E-B728-CAED4283830A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LtmApp.WinForm", "LtmApp.WinForm\LtmApp.WinForm.csproj", "{8CA4B83F-96B0-4DCF-AF12-3185B03262F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{EF9BBEE4-663B-4D1E-B728-CAED4283830A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF9BBEE4-663B-4D1E-B728-CAED4283830A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF9BBEE4-663B-4D1E-B728-CAED4283830A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CA4B83F-96B0-4DCF-AF12-3185B03262F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CA4B83F-96B0-4DCF-AF12-3185B03262F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CA4B83F-96B0-4DCF-AF12-3185B03262F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CA4B83F-96B0-4DCF-AF12-3185B03262F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

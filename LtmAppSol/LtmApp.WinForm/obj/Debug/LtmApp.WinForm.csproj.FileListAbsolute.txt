@@ -1,0 +1,15 @@
+C:\projects\LtmApp\LtmAppSol\LtmApp.WinForm\bin\Debug\LtmApp.WinForm.exe.config
+C:\projects\LtmApp\LtmAppSol\LtmApp.WinForm\bin\Debug\LtmApp.WinForm.exe
+C:\projects\LtmApp\LtmAppSol\LtmApp.WinForm\bin\Debug\LtmApp.WinForm.pdb
+C:\projects\LtmApp\LtmAppSol\LtmApp.WinForm\obj\Debug\LtmApp.WinForm.csproj.AssemblyReference.cache
+C:\projects\LtmApp\LtmAppSol\LtmApp.WinForm\obj\Debug\LtmApp.WinForm.csproj.SuggestedBindingRedirects.cache
+C:\projects\LtmApp\LtmAppSol\LtmApp.WinForm\obj\Debug\LtmApp.WinForm.Properties.Resources.resources
+C:\projects\LtmApp\LtmAppSol\LtmApp.WinForm\obj\Debug\LtmApp.WinForm.csproj.GenerateResource.cache
+C:\projects\LtmApp\LtmAppSol\LtmApp.WinForm\obj\Debug\LtmApp.WinForm.csproj.CoreCompileInputs.cache
+C:\projects\LtmApp\LtmAppSol\LtmApp.WinForm\obj\Debug\LtmApp.WinForm.exe
+C:\projects\LtmApp\LtmAppSol\LtmApp.WinForm\obj\Debug\LtmApp.WinForm.pdb
+C:\projects\LtmApp\LtmAppSol\LtmApp.WinForm\obj\Debug\LtmApp.WinForm.Home.resources
+C:\projects\LtmApp\LtmAppSol\LtmApp.WinForm\obj\Debug\LtmApp.WinForm.Student.resources
+C:\projects\LtmApp\LtmAppSol\LtmApp.WinForm\obj\Debug\LtmApp.WinForm.Instructor.resources
+C:\projects\LtmApp\LtmAppSol\LtmApp.WinForm\obj\Debug\LtmApp.WinForm.Course.resources
+C:\projects\LtmApp\LtmAppSol\LtmApp.WinForm\obj\Debug\LtmApp.WinForm.Department.resources
