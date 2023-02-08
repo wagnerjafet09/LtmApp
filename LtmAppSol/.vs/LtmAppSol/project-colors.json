@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "7986406f-d482-4246-945d-f38e1b283bc3": {
+      "ProjectGuid": "7986406f-d482-4246-945d-f38e1b283bc3",
+      "DisplayName": "LtmApp.DAL",
+      "ColorIndex": 0
+    },
+    "95805f54-da9e-4668-9800-e6fba6647c7f": {
+      "ProjectGuid": "95805f54-da9e-4668-9800-e6fba6647c7f",
+      "DisplayName": "LtmApp.BL",
+      "ColorIndex": 1
+    },
+    "a8871a0d-8a59-4349-827e-5fcfffeb1df9": {
+      "ProjectGuid": "a8871a0d-8a59-4349-827e-5fcfffeb1df9",
+      "DisplayName": "LtmApp.SL",
+      "ColorIndex": 2
+    },
+    "e5782b1a-3e16-43a7-adf7-bffd9996c332": {
+      "ProjectGuid": "e5782b1a-3e16-43a7-adf7-bffd9996c332",
+      "DisplayName": "LtmApp.Web",
+      "ColorIndex": 3
+    },
+    "ef9bbee4-663b-4d1e-b728-caed4283830a": {
+      "ProjectGuid": "ef9bbee4-663b-4d1e-b728-caed4283830a",
+      "DisplayName": "LtmApp.Api",
+      "ColorIndex": 4
+    },
+    "8ca4b83f-96b0-4dcf-af12-3185b03262f1": {
+      "ProjectGuid": "8ca4b83f-96b0-4dcf-af12-3185b03262f1",
+      "DisplayName": "LtmApp.WinForm",
+      "ColorIndex": 5
+    }
+  },
+  "NextColorIndex": 6
+}
