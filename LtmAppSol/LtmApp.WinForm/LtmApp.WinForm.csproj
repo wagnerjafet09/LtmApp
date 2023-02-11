@@ -72,6 +72,7 @@
       <DependentUpon>Instructor.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\CourseModel.cs" />
+    <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student.cs">
