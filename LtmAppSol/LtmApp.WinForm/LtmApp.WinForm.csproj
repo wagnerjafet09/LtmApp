@@ -58,6 +58,7 @@
     <Compile Include="Department.Designer.cs">
       <DependentUpon>Department.cs</DependentUpon>
     </Compile>
+    <Compile Include="Exceptions\StudentException.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +71,7 @@
     <Compile Include="Instructor.Designer.cs">
       <DependentUpon>Instructor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\CourseModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student.cs">
