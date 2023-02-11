@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace LtmApp.WinForm.Exceptions
 {
-    internal class StudentException
+    internal class StudentException: Exception
     {
+        public StudentException(string message) : base(message)
+        {
+        }
     }
 }
