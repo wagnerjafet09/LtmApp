@@ -10,14 +10,14 @@
         "projectUniqueName": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.SL\\LtmApp.SL.csproj",
         "projectName": "LtmApp.SL",
         "projectPath": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.SL\\LtmApp.SL.csproj",
-        "packagesPath": "C:\\Users\\Eliezer23\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\matos\\.nuget\\packages\\",
         "outputPath": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.SL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Eliezer23\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -49,8 +49,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -59,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.113\\RuntimeIdentifierGraph.json"
         }
       }
     }
