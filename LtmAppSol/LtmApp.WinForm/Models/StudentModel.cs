@@ -3,7 +3,7 @@ using LtmApp.WinForm.Exceptions;
 
 namespace LtmApp.WinForm.Models
 {
-    public class StudentModel
+    public class StudentModel : PersonModel
     {
         private int studentId;
         public int StudentId
