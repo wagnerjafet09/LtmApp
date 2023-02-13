@@ -11,7 +11,7 @@ namespace LtmApp.WinForm.Models
             get { return this.studentId; }
             set
             {
-                if ((value) == null)
+                if ((value) == 0)
                 {
                     throw new StudentException("El campo Id es requerido");
                 }
