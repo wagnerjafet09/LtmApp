@@ -10,7 +10,7 @@ namespace LtmApp.WinForm.Models
             get { return this.courseId; }
             set
             {
-                if ((value) == null)
+                if ((value) == 0)
                 {
                     throw new StudentException("El campo CourseId es requerido");
                 }
@@ -38,7 +38,7 @@ namespace LtmApp.WinForm.Models
             get { return this.credits; }
             set
             {
-                if ((value) == null)
+                if ((value) == 0)
                 {
                     throw new StudentException("El campo Credits es requerido");
                 }
@@ -50,7 +50,7 @@ namespace LtmApp.WinForm.Models
             get { return this.departmentId; }
             set
             {
-                if ((value) == null)
+                if ((value) == 0)
                 {
                     throw new StudentException("El campo DepartmentId es requerido");
                 }
