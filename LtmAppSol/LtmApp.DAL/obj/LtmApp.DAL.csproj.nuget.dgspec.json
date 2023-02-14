@@ -10,15 +10,14 @@
         "projectUniqueName": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.DAL\\LtmApp.DAL.csproj",
         "projectName": "LtmApp.DAL",
         "projectPath": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.DAL\\LtmApp.DAL.csproj",
-        "packagesPath": "C:\\Users\\raymer.rodriguez\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\mayer\\.nuget\\packages\\",
         "outputPath": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\raymer.rodriguez\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
+          "C:\\Users\\mayer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +25,6 @@
           "netstandard2.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
