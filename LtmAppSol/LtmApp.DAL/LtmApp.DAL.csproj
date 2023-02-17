@@ -5,4 +5,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Context\" />
+    <Folder Include="Core\" />
+    <Folder Include="DbFactory\" />
+    <Folder Include="Diagram\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Uow\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 </Project>
