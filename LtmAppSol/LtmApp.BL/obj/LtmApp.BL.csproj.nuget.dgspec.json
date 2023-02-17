@@ -10,14 +10,14 @@
         "projectUniqueName": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.BL\\LtmApp.BL.csproj",
         "projectName": "LtmApp.BL",
         "projectPath": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.BL\\LtmApp.BL.csproj",
-        "packagesPath": "C:\\Users\\mayer\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Eliezer23\\.nuget\\packages\\",
         "outputPath": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.BL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mayer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Eliezer23\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
