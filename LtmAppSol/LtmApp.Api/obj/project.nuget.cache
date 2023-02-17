@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "84n3v/3iEAGzIXIuS4XF4LMUkIiz8LTlIBlbuYa1GHzAqJ9j5w8lOnhamTkeY7ywgfZMYS+WXlc67kVfqqJxcA==",
+  "dgSpecHash": "uC88690drFh+B0Wd6onEWre3U3Y6Aaxto2KIN5yLdfEcXtuWbx3IgKcLlGHls4KEC7fqEOe0inTy1pWMW03PjQ==",
   "success": true,
   "projectFilePath": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.Api\\LtmApp.Api.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\mayer\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\mayer\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\mayer\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
-    "C:\\Users\\mayer\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
