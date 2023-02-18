@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "GOB3MBU5xj0yLn3cMzY2AAbihya/NqCmLrOkkapbTMPXd2aFrM1Epjntxiq9hl//D+JW05OlKeBh8wLUUq9sfQ==",
+  "dgSpecHash": "tYUeZWAR0YLSKKU1JgjZ/AKG4u5DK6z0if8Ds3aBokQQfUxAEt5BrTpf/0wIrEKo68rbKA7hlSvQHs6BoawN/A==",
   "success": true,
   "projectFilePath": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.Api\\LtmApp.Api.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\matos\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\matos\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\matos\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\matos\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\matos\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\matos\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
   "logs": []
 }
