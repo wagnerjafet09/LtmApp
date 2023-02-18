@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Eliezer23\\.nuget\\packages\\": {},
+    "C:\\Users\\matos\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
@@ -17,14 +17,14 @@
       "projectUniqueName": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.Api\\LtmApp.Api.csproj",
       "projectName": "LtmApp.Api",
       "projectPath": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.Api\\LtmApp.Api.csproj",
-      "packagesPath": "C:\\Users\\Eliezer23\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\matos\\.nuget\\packages\\",
       "outputPath": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Eliezer23\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\matos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -56,8 +56,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -69,7 +68,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.114\\RuntimeIdentifierGraph.json"
       }
     }
   }
