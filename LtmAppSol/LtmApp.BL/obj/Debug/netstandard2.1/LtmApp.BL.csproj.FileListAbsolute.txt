@@ -1,0 +1,10 @@
+C:\projects\LtmApp\LtmAppSol\LtmApp.BL\bin\Debug\netstandard2.1\LtmApp.BL.deps.json
+C:\projects\LtmApp\LtmAppSol\LtmApp.BL\bin\Debug\netstandard2.1\LtmApp.BL.dll
+C:\projects\LtmApp\LtmAppSol\LtmApp.BL\bin\Debug\netstandard2.1\LtmApp.BL.pdb
+C:\projects\LtmApp\LtmAppSol\LtmApp.BL\obj\Debug\netstandard2.1\LtmApp.BL.csproj.AssemblyReference.cache
+C:\projects\LtmApp\LtmAppSol\LtmApp.BL\obj\Debug\netstandard2.1\LtmApp.BL.GeneratedMSBuildEditorConfig.editorconfig
+C:\projects\LtmApp\LtmAppSol\LtmApp.BL\obj\Debug\netstandard2.1\LtmApp.BL.AssemblyInfoInputs.cache
+C:\projects\LtmApp\LtmAppSol\LtmApp.BL\obj\Debug\netstandard2.1\LtmApp.BL.AssemblyInfo.cs
+C:\projects\LtmApp\LtmAppSol\LtmApp.BL\obj\Debug\netstandard2.1\LtmApp.BL.csproj.CoreCompileInputs.cache
+C:\projects\LtmApp\LtmAppSol\LtmApp.BL\obj\Debug\netstandard2.1\LtmApp.BL.dll
+C:\projects\LtmApp\LtmAppSol\LtmApp.BL\obj\Debug\netstandard2.1\LtmApp.BL.pdb

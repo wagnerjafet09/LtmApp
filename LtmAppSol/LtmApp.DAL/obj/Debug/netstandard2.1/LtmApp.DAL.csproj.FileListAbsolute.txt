@@ -1,0 +1,10 @@
+C:\projects\LtmApp\LtmAppSol\LtmApp.DAL\bin\Debug\netstandard2.1\LtmApp.DAL.deps.json
+C:\projects\LtmApp\LtmAppSol\LtmApp.DAL\bin\Debug\netstandard2.1\LtmApp.DAL.dll
+C:\projects\LtmApp\LtmAppSol\LtmApp.DAL\bin\Debug\netstandard2.1\LtmApp.DAL.pdb
+C:\projects\LtmApp\LtmAppSol\LtmApp.DAL\obj\Debug\netstandard2.1\LtmApp.DAL.csproj.AssemblyReference.cache
+C:\projects\LtmApp\LtmAppSol\LtmApp.DAL\obj\Debug\netstandard2.1\LtmApp.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\projects\LtmApp\LtmAppSol\LtmApp.DAL\obj\Debug\netstandard2.1\LtmApp.DAL.AssemblyInfoInputs.cache
+C:\projects\LtmApp\LtmAppSol\LtmApp.DAL\obj\Debug\netstandard2.1\LtmApp.DAL.AssemblyInfo.cs
+C:\projects\LtmApp\LtmAppSol\LtmApp.DAL\obj\Debug\netstandard2.1\LtmApp.DAL.csproj.CoreCompileInputs.cache
+C:\projects\LtmApp\LtmAppSol\LtmApp.DAL\obj\Debug\netstandard2.1\LtmApp.DAL.dll
+C:\projects\LtmApp\LtmAppSol\LtmApp.DAL\obj\Debug\netstandard2.1\LtmApp.DAL.pdb
