@@ -13,7 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LtmApp.Web", "LtmApp.Web\Lt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LtmApp.WinForm", "LtmApp.WinForm\LtmApp.WinForm.csproj", "{8CA4B83F-96B0-4DCF-AF12-3185B03262F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LtmApp.Api", "LtmApp.Api\LtmApp.Api.csproj", "{EF5D74F0-B7A8-46A1-9F53-F9AA66C179CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LtmApp.Api", "LtmApp.Api\LtmApp.Api.csproj", "{EF5D74F0-B7A8-46A1-9F53-F9AA66C179CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{732F5B2D-ABF8-41F3-9D6F-1EFBED067DC2}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
