@@ -53,6 +53,7 @@ namespace LtmApp.DAL.Repositories
             try
             {
                 Student studentToRemove = GetById(student.ID);
+                studentToRemove.ID = student.ID;
                 studentToRemove.DeletedDate = DateTime.Now;
                 studentToRemove.Deleted = true;
                 studentToRemove.UserDeleted = student.UserDeleted;
