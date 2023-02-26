@@ -22,7 +22,7 @@ namespace LtmApp.Api.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var students = _studentRepository.GetAll();
+            var students = _studentRepository.GetEntities();
             return Ok(students);
         }
 
@@ -30,7 +30,7 @@ namespace LtmApp.Api.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var student = _studentRepository.GetById(id);
+            var student = _studentRepository.GetEntity(id);
 
             return Ok(student);
         }
