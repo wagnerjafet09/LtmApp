@@ -22,7 +22,7 @@ namespace LtmApp.Api.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var Course = _courseRepository.GetAll();
+            var Course = _courseRepository.GetEntities();
             return Ok(Course);
         }
 
@@ -30,7 +30,7 @@ namespace LtmApp.Api.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var course = _courseRepository.GetById(id);
+            var course = _courseRepository.GetEntity(id);
             return Ok(course);
         }
 
@@ -38,7 +38,7 @@ namespace LtmApp.Api.Controllers
         [HttpPost("SaveCourse")]
         public IActionResult Post([FromBody] Course course)
         {
-            _courseRepository.Save(course);
+            _courseRepository.save(course);
             return Ok();
         }
 
@@ -46,7 +46,7 @@ namespace LtmApp.Api.Controllers
         [HttpPut("UpdateCourse")]
         public IActionResult Put([FromBody] Course course)
         {
-            _courseRepository.Update(course);
+            _courseRepository.update(course);
             return Ok();
         }
 
@@ -54,7 +54,7 @@ namespace LtmApp.Api.Controllers
         [HttpDelete("RemoveCourse")]
         public IActionResult Remove([FromBody] Course course)
         {
-            _courseRepository.Remove(course);
+            _courseRepository.remove(course);
             return Ok();
         }
     }

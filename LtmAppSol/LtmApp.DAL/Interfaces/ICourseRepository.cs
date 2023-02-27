@@ -5,19 +5,9 @@ using System.Collections.Generic;
 
 namespace LtmApp.DAL.Interfaces
 {
-    public interface ICourseRepository
+    public interface ICourseRepository : Core.IRepositoryBase<Course>
     {
-        List<CourseModel> GetAll();
 
-        void Save(Course course);
-
-        void Update(Course course);
-
-        void Remove(Course course);
-
-        Course GetById(int ID);
-
-        bool Exists(string title);
 
     }
 }
