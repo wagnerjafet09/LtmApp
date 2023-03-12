@@ -1782,6 +1782,19 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "LtmApp.BL/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "LtmApp.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LtmApp.BL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LtmApp.BL.dll": {}
+        }
+      },
       "LtmApp.DAL/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -6079,6 +6092,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "LtmApp.BL/1.0.0": {
+      "type": "project",
+      "path": "../LtmApp.BL/LtmApp.BL.csproj",
+      "msbuildProject": "../LtmApp.BL/LtmApp.BL.csproj"
+    },
     "LtmApp.DAL/1.0.0": {
       "type": "project",
       "path": "../LtmApp.DAL/LtmApp.DAL.csproj",
@@ -6087,6 +6105,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "LtmApp.BL >= 1.0.0",
       "LtmApp.DAL >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
@@ -6123,6 +6142,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.BL\\LtmApp.BL.csproj": {
+              "projectPath": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.BL\\LtmApp.BL.csproj"
+            },
             "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.DAL\\LtmApp.DAL.csproj": {
               "projectPath": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.DAL\\LtmApp.DAL.csproj"
             }

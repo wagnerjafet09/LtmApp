@@ -1,4 +1,6 @@
-﻿using LtmApp.DAL.Entities;
+﻿using LtmApp.BL.Contract;
+using LtmApp.BL.Dtos;
+using LtmApp.DAL.Entities;
 using LtmApp.DAL.Interfaces;
 using LtmApp.DAL.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -12,49 +14,54 @@ namespace LtmApp.Api.Controllers
     [ApiController]
     public class DepartmentController : ControllerBase
     {
-        private readonly IDepartmentRepository _departmentRepository;
-        public DepartmentController(IDepartmentRepository departmentRepository)
+        private readonly IDepartmentService departmentService;
+
+        public DepartmentController(IDepartmentService departmentService)
         {
-            _departmentRepository = departmentRepository;
+            this.departmentService = departmentService;
         }
         // GET: api/<DepartmentController>
         [HttpGet]
         public IActionResult Get()
         {
-            var deparments = _departmentRepository.GetEntities();
-            return Ok(deparments);
+            var result = departmentService.GetAll();
+            if (!result.Success) 
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
         }
 
         // GET api/<DepartmentController>/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var deparment = _departmentRepository.GetEntity(id);
-            return Ok(deparment);
+            var result = departmentService.GetById(id);
+            return Ok(result);
         }
 
         // POST api/<DepartmentController>
         [HttpPost("SaveDepartment")]
-        public IActionResult Post([FromBody] Department department)
+        public IActionResult Post([FromBody] DepartmentAddDto department)
         {
-            _departmentRepository.Save(department);
-            return Ok();
+            var result = this.departmentService.SaveDepartment(department);
+            return Ok(result);
         }
 
         // PUT api/<DepartmentController>
         [HttpPut("UpdateDeparment")]
-        public IActionResult Put([FromBody] Department department)
+        public IActionResult Put([FromBody] DepartmentUpdateDto department)
         {
-            _departmentRepository.Update(department);
-            return Ok();
+            var result = this.departmentService.UpdateDepartment(department);
+            return Ok(result);
         }
 
         // DELETE api/<DepartmentController>/5
         [HttpDelete("RemoveDepartment")]
-        public IActionResult Remove([FromBody] Department department)
+        public IActionResult Remove([FromBody] DepartmentRemoveDto department)
         {
-            _departmentRepository.Remove(department);
-            return Ok();
+            var result = this.departmentService.RemoveDepartment(department);
+            return Ok(result);
         }
     }
 }

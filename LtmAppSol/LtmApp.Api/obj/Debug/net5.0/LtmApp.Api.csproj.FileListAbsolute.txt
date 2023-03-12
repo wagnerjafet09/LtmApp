@@ -59,3 +59,5 @@ C:\projects\LtmApp\LtmAppSol\LtmApp.Api\obj\Debug\net5.0\refint\LtmApp.Api.dll
 C:\projects\LtmApp\LtmAppSol\LtmApp.Api\obj\Debug\net5.0\LtmApp.Api.pdb
 C:\projects\LtmApp\LtmAppSol\LtmApp.Api\obj\Debug\net5.0\LtmApp.Api.genruntimeconfig.cache
 C:\projects\LtmApp\LtmAppSol\LtmApp.Api\obj\Debug\net5.0\ref\LtmApp.Api.dll
+C:\projects\LtmApp\LtmAppSol\LtmApp.Api\bin\Debug\net5.0\LtmApp.BL.dll
+C:\projects\LtmApp\LtmAppSol\LtmApp.Api\bin\Debug\net5.0\LtmApp.BL.pdb

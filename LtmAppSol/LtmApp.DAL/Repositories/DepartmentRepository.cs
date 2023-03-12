@@ -24,6 +24,9 @@ namespace LtmApp.DAL.Repositories
             var departments = _LtmContext.Department.Where(dep => !dep.Deleted).ToList();
             return departments;
         }
-
+        public override void Update(Department entity) 
+        { 
+            base.SaveChanges();
+        }
     }
 }

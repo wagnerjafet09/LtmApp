@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LtmApp.BL\LtmApp.BL.csproj" />
     <ProjectReference Include="..\LtmApp.DAL\LtmApp.DAL.csproj" />
   </ItemGroup>
 

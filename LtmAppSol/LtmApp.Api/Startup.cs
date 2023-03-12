@@ -1,3 +1,5 @@
+using LtmApp.BL.Contract;
+using LtmApp.BL.Services;
 using LtmApp.DAL.Context;
 using LtmApp.DAL.Interfaces;
 using LtmApp.DAL.Repositories;
@@ -35,7 +37,11 @@ namespace LtmApp.Api
             //Repositories
             services.AddTransient<IDepartmentRepository, DepartmentRepository>();
 
-            //App Services
+            //App Services//
+            services.AddTransient<IDepartmentService, DepartmentService>();
+
+
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
