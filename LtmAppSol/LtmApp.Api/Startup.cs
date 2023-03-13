@@ -1,3 +1,5 @@
+using LtmApp.BL.Contract;
+using LtmApp.BL.Service;
 using LtmApp.DAL.Context;
 using LtmApp.DAL.Interfaces;
 using LtmApp.DAL.Repositories;
@@ -28,9 +30,12 @@ namespace LtmApp.Api
             services.AddDbContext<LtmContext>(options => options.UseSqlServer(this.Configuration.GetConnectionString("LtmContext")));
 
             //Repositories
-            services.AddTransient<ICourseRepository, CourseRepository>();
+            services.AddScoped<ICourseRepository, CourseRepository>();
 
             //Add Service
+            services.AddTransient<ICourseService, CourseService>();
+
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

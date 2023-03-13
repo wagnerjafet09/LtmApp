@@ -1,4 +1,7 @@
-﻿using LtmApp.DAL.Entities;
+﻿using LtmApp.BL.Contract;
+using LtmApp.BL.Dto.Course;
+using LtmApp.BL.Service;
+using LtmApp.DAL.Entities;
 using LtmApp.DAL.Interfaces;
 using LtmApp.DAL.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -12,50 +15,56 @@ namespace LtmApp.Api.Controllers
     [ApiController]
     public class CourseController : ControllerBase
     {
-        private readonly ICourseRepository _courseRepository;
+        private readonly ICourseService courseService;
 
-        public CourseController(ICourseRepository courseRepository)
+        public CourseController(ICourseService courseService)
+
         {
-            _courseRepository = courseRepository;
+            this.courseService = courseService;
         }
         // GET: api/<CourseController>
         [HttpGet]
         public IActionResult Get()
         {
-            var Course = _courseRepository.GetEntities();
-            return Ok(Course);
+            var result = this.courseService.GetAll();
+
+            if (!result.Success) 
+            {
+                return BadRequest(result);
+            }
+            return Ok(result); 
         }
 
         // GET api/<CourseController>/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var course = _courseRepository.GetEntity(id);
-            return Ok(course);
+            var result = courseService.GetById(id);
+            return Ok(result);
         }
 
         // POST api/<CourseController>
         [HttpPost("SaveCourse")]
-        public IActionResult Post([FromBody] Course course)
+        public IActionResult Post([FromBody] CourseSaveDto course)
         {
-            _courseRepository.save(course);
-            return Ok();
+            var result = courseService.SaveCourse(course);
+            return Ok(result);
         }
 
         // PUT api/<CourseController>/5
         [HttpPut("UpdateCourse")]
-        public IActionResult Put([FromBody] Course course)
+        public IActionResult Put([FromBody] CourseUpdateDto course)
         {
-            _courseRepository.update(course);
-            return Ok();
+            var result = courseService.UpdateCourse(course);
+            return Ok(result);
         }
 
         // DELETE api/<CourseController>/5
         [HttpDelete("RemoveCourse")]
-        public IActionResult Remove([FromBody] Course course)
+        public IActionResult Remove([FromBody] CourseRemoveDto course)
         {
-            _courseRepository.remove(course);
-            return Ok();
+            var result = courseService.RemoveCourse(course);
+            return Ok(result);
         }
     }
 }
