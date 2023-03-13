@@ -8,3 +8,6 @@ C:\projects\LtmApp\LtmAppSol\LtmApp.BL\obj\Debug\netstandard2.1\LtmApp.BL.Assemb
 C:\projects\LtmApp\LtmAppSol\LtmApp.BL\obj\Debug\netstandard2.1\LtmApp.BL.csproj.CoreCompileInputs.cache
 C:\projects\LtmApp\LtmAppSol\LtmApp.BL\obj\Debug\netstandard2.1\LtmApp.BL.dll
 C:\projects\LtmApp\LtmAppSol\LtmApp.BL\obj\Debug\netstandard2.1\LtmApp.BL.pdb
+C:\projects\LtmApp\LtmAppSol\LtmApp.BL\bin\Debug\netstandard2.1\LtmApp.DAL.dll
+C:\projects\LtmApp\LtmAppSol\LtmApp.BL\bin\Debug\netstandard2.1\LtmApp.DAL.pdb
+C:\projects\LtmApp\LtmAppSol\LtmApp.BL\obj\Debug\netstandard2.1\LtmApp.BL.csproj.CopyComplete

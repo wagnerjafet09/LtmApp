@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using LtmApp.DAL.Models;
 using LtmApp.DAL.Entities;
+using LtmApp.BL.Contract;
+using LtmApp.BL.Services;
+using LtmApp.BL.Dtos.Student;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,53 +16,91 @@ namespace LtmApp.Api.Controllers
     public class StudentController : ControllerBase
     {
         private readonly IStudentRepository _studentRepository;
+        private readonly IStudentService _studentService;
 
-        public StudentController(IStudentRepository studentRepository)
+        public StudentController(IStudentService studentService)
         {
-            _studentRepository = studentRepository;
+            _studentService = studentService;
         }
         // GET: api/<StudentController>
         [HttpGet]
         public IActionResult Get()
         {
-            var students = _studentRepository.GetEntities();
-            return Ok(students);
+            var result = _studentService.GetAll();
+
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            else 
+            {
+                return BadRequest(result);
+            }
         }
 
         // GET api/<StudentController>/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var student = _studentRepository.GetEntity(id);
+            var result = _studentService.GetById(id);
 
-            return Ok(student);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
         }
 
         // POST api/<StudentController>
         [HttpPost("SaveStudent")]
-        public IActionResult Post([FromBody] Student student)
+        public IActionResult Post([FromBody] StudentSaveDto studentSaveDto)
         {
-            _studentRepository.Save(student);
+            var result = _studentService.SaveStudent(studentSaveDto);
 
-            return Ok();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
         }
 
         // PUT api/<StudentController>/5
         [HttpPut("UpdateStudent")]
-        public IActionResult Put([FromBody] Student student)
+        public IActionResult Put([FromBody] StudentUpdateDto studentUpdateDto)
         {
-            _studentRepository.Update(student);
+            var result = _studentService.UpdateStudent(studentUpdateDto);
 
-            return Ok();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
         }
 
         // DELETE api/<StudentController>/5
         [HttpDelete("RemoveStudent")]
-        public IActionResult Delete([FromBody] Student student)
+        public IActionResult Delete([FromBody] StudentRemoveDto studentRemoveDto)
         {
-            _studentRepository.Remove(student);
+            var result = _studentService.RemoveStudent(studentRemoveDto);
 
-            return Ok();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
         }
     }
 }

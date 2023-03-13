@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>LtmApp.BL</id>
+    <version>1.0.0</version>
+    <authors>LtmApp.BL</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETStandard2.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\projects\LtmApp\LtmAppSol\LtmApp.BL\bin\Debug\netstandard2.1\LtmApp.BL.dll" target="lib\netstandard2.1\LtmApp.BL.dll" />
+  </files>
+</package>
