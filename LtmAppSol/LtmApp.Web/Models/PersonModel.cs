@@ -4,10 +4,10 @@ namespace LtmApp.Web.Models
 {
     public class PersonModel
     {
-        private string firstName;
-        public string FirstName
+        private string _firstName;
+        public string firstName
         {
-            get { return firstName; }
+            get { return _firstName; }
             set
             {
                 if (string.IsNullOrEmpty(value))
@@ -20,16 +20,16 @@ namespace LtmApp.Web.Models
                 }
                 else
                 {
-                    firstName = value;
+                    _firstName = value;
                 }
             }
         }
 
 
-        private string lastName;
-        public string LastName 
+        private string _lastName;
+        public string lastName 
         {
-            get { return lastName; }
+            get { return _lastName; }
             set 
             {
                 if (string.IsNullOrEmpty(value))
@@ -42,7 +42,7 @@ namespace LtmApp.Web.Models
                 }
                 else
                 {
-                    lastName = value;
+                    _lastName = value;
                 }
             } 
         }

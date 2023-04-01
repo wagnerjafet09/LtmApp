@@ -17,29 +17,29 @@ namespace LtmApp.Web.Controllers
 				{
 					InstructorId = 1,
 					HireDate = DateTime.Now,
-					FirstName = "Wagner",
-					LastName = "Matos"
+					firstName = "Wagner",
+					lastName = "Matos"
 				},
 				new InstructorModel()
 				{
 					InstructorId = 2,
 					HireDate = DateTime.Now,
-					FirstName = "Eliezer",
-					LastName = "Vargas"
+					firstName = "Eliezer",
+					lastName = "Vargas"
 				},
 				new InstructorModel()
 				{
 					InstructorId = 3,
 					HireDate = DateTime.Now,
-					FirstName = "Rusbel",
-					LastName = "Rodriguez"
+                    firstName = "Rusbel",
+                    lastName = "Rodriguez"
 				},
 				new InstructorModel()
 				{
 					InstructorId = 4,
 					HireDate = DateTime.Now,
-					FirstName = "Mayerlin",
-					LastName = "Vargas"
+                    firstName = "Mayerlin",
+                    lastName = "Vargas"
 				}
 			};
 			return View(instructors);

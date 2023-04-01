@@ -1,54 +1,100 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using LtmApp.Web.Models;
+using LtmApp.Web.Models.Requests;
+using LtmApp.Web.Models.Responses;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using LtmApp.Web.Models;
-using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace LtmApp.Web.Controllers
 {
     public class StudentController : Controller
     {
-        // GET: StudentController
-        public ActionResult Index()
-        {
-            List<StudentModel> students = new List<StudentModel>()
-            {
-                new StudentModel() 
-                {
-                    StudentId = 1,
-                    EnrollmentDate = DateTime.Now,
-                    FirstName = "Wagner",
-                    LastName = "Matos"
-                },
-                new StudentModel()
-                {
-                    StudentId = 2,
-                    EnrollmentDate = DateTime.Now,
-                    FirstName = "Eliezer",
-                    LastName = "Vargas"
-                },
-                new StudentModel()
-                {
-                    StudentId = 3,
-                    EnrollmentDate = DateTime.Now,
-                    FirstName = "Rusbel",
-                    LastName = "Rodriguez"
-                },
-                new StudentModel()
-                {
-                    StudentId = 4,
-                    EnrollmentDate = DateTime.Now,
-                    FirstName = "Mayerlin",
-                    LastName = "Vargas"
-                }
-            };
+        HttpClientHandler handler = new HttpClientHandler();
+        private readonly ILogger<StudentController> logger;
+        private readonly IConfiguration configuration;
+        private readonly string urlBase;
 
-            return View(students);
+        public StudentController(ILogger<StudentController> logger, IConfiguration configuration)
+        {
+            this.logger = logger;
+            this.configuration = configuration;
+            this.urlBase = this.configuration["apiConfig:baseUrl"];
+        }
+
+        // GET: StudentController
+        public async Task<ActionResult> Index()
+        {
+            StudentListResponse studentList = new StudentListResponse();
+
+            try
+            {
+                using (var httpClient = new HttpClient(this.handler)) 
+                {
+                    var response = await httpClient.GetAsync($"{ this.urlBase }/Student");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string apiResult = await response.Content.ReadAsStringAsync();
+
+                        studentList = JsonConvert.DeserializeObject<StudentListResponse>(apiResult);
+                    }
+                    else 
+                    {
+                        // Poner x Logica 
+                    }
+
+                }
+
+                return View(studentList.data);
+
+            }
+            catch (Exception ex)
+            {
+
+                this.logger.LogError("Error obteniendo los estudiantes.", ex.ToString());
+            }
+
+            return View();
         }
 
         // GET: StudentController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
+            StudentDetailResponse detailResponse= new StudentDetailResponse();
+
+            try
+            {
+                using (var httpClient = new HttpClient(this.handler))
+                {
+                    var response = await httpClient.GetAsync($"{ this.urlBase }/Student/{ id }");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string apiResult = await response.Content.ReadAsStringAsync();
+
+                        detailResponse = JsonConvert.DeserializeObject<StudentDetailResponse>(apiResult);
+                    }
+                    else
+                    {
+                        // Poner x Logica 
+                    }
+
+                }
+
+                return View(detailResponse.data);
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError("Error obteniendo el detalle del estudiante.", ex.ToString());
+            }
+
             return View();
         }
 
@@ -61,11 +107,36 @@ namespace LtmApp.Web.Controllers
         // POST: StudentController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Create(StudentCreateRequest createRequest)
         {
+            CommadResponse commadResponse = new CommadResponse();
+
             try
             {
-                return RedirectToAction(nameof(Index));
+                createRequest.CreationDate = DateTime.Now;
+                createRequest.CreationUser = 1;
+
+                using (var httpClient = new HttpClient(this.handler))
+                {
+                    StringContent request = new StringContent(JsonConvert.SerializeObject(createRequest), Encoding.UTF8, "application/json");
+
+                    var response = await httpClient.PostAsync($"{this.urlBase}/Student/SaveStudent", request);
+
+                    string apiResult = await response.Content.ReadAsStringAsync();
+
+                    commadResponse = JsonConvert.DeserializeObject<CommadResponse>(apiResult);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return RedirectToAction(nameof(Index));
+                    }
+                    else
+                    {
+                        ViewBag.Message = commadResponse.message;
+                        return View();
+                    }
+                }
+
             }
             catch
             {
@@ -74,19 +145,72 @@ namespace LtmApp.Web.Controllers
         }
 
         // GET: StudentController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
+
+            StudentDetailResponse detailResponse = new StudentDetailResponse();
+
+            try
+            {
+                using (var httpClient = new HttpClient(this.handler))
+                {
+                    var response = await httpClient.GetAsync($"{this.urlBase}/Student/{id}");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string apiResult = await response.Content.ReadAsStringAsync();
+
+                        detailResponse = JsonConvert.DeserializeObject<StudentDetailResponse>(apiResult);
+                    }
+                    else
+                    {
+                        // Poner x Logica 
+                    }
+
+                }
+
+                return View(detailResponse.data);
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError("Error obteniendo el detalle del estudiante.", ex.ToString());
+            }
+
             return View();
         }
 
         // POST: StudentController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(StudentUpdateRequest studentUpdate)
         {
+            CommadResponse commadResponse = new CommadResponse();
             try
             {
-                return RedirectToAction(nameof(Index));
+                studentUpdate.ModifyDate = DateTime.Now;
+                studentUpdate.UserMod = 1;
+
+                using (var httpClient = new HttpClient(this.handler))
+                {
+                    StringContent request = new StringContent(JsonConvert.SerializeObject(studentUpdate),Encoding.UTF8, "application/json");
+
+                    var response = await httpClient.PutAsync($"{this.urlBase}/Student/UpdateStudent", request);
+
+                    string apiResult = await response.Content.ReadAsStringAsync();
+
+                    commadResponse = JsonConvert.DeserializeObject<CommadResponse>(apiResult);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return RedirectToAction(nameof(Index));
+                    }
+                    else
+                    {
+                        ViewBag.Message = commadResponse.message;
+                        return View();
+                    }
+                }
+
             }
             catch
             {
