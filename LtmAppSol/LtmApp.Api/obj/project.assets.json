@@ -6111,7 +6111,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Eliezer23\\.nuget\\packages\\": {},
+    "C:\\Users\\MSI GL65\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
@@ -6120,14 +6120,14 @@
       "projectUniqueName": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.Api\\LtmApp.Api.csproj",
       "projectName": "LtmApp.Api",
       "projectPath": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.Api\\LtmApp.Api.csproj",
-      "packagesPath": "C:\\Users\\Eliezer23\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\MSI GL65\\.nuget\\packages\\",
       "outputPath": "C:\\projects\\LtmApp\\LtmAppSol\\LtmApp.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Eliezer23\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MSI GL65\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6185,7 +6185,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

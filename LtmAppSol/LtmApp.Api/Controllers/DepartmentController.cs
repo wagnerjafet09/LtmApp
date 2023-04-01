@@ -49,7 +49,7 @@ namespace LtmApp.Api.Controllers
         }
 
         // PUT api/<DepartmentController>
-        [HttpPut("UpdateDeparment")]
+        [HttpPut("UpdateDepartment")]
         public IActionResult Put([FromBody] DepartmentUpdateDto department)
         {
             var result = this.departmentService.UpdateDepartment(department);
