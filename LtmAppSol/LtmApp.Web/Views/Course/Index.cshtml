@@ -24,6 +24,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.DepartmentId)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreationDate)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -43,9 +46,11 @@
                 @Html.DisplayFor(modelItem => item.DepartmentId)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.CourseId }) |
+                    @Html.ActionLink("Details", "Details", new {  id=item.CourseId  }) |
             </td>
         </tr>
 }

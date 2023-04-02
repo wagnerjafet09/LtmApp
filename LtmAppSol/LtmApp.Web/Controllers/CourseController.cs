@@ -3,68 +3,124 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System;
 using LtmApp.Web.Models;
+using System.Net.Http;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
+using LtmApp.Web.Models.Responses;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Text;
+using LtmApp.Web.Models.Request;
 
 namespace LtmApp.Web.Controllers
 {
     public class CourseController : Controller
     {
-        // GET: CourseController
-        public ActionResult Index()   
+        HttpClientHandler handler = new HttpClientHandler();
+        private readonly ILogger<CourseController> logger;
+        private readonly IConfiguration configuration;
+        private readonly string urlBase;
+
+        public CourseController(ILogger<CourseController>logger, IConfiguration configuration)
         {
-            List<CourseModel> courses = new List<CourseModel>()
-            {
-                new CourseModel() 
-                {
-                    CourseId = 1,
-                    Credits = 5,
-                    Title = "Calculus",
-                    DepartmentId = 2
-                },
-                new CourseModel()
-                {
-                    CourseId = 2,
-                    Credits = 2,
-                    Title  = "Chemistry",
-                    DepartmentId = 1
-                },
-                new CourseModel()
-                {
-                    CourseId = 3,
-                    Credits = 4,
-                    Title  = "Physics",
-                    DepartmentId = 1
-                },
-                new CourseModel()
-                {
-                    CourseId = 4,
-                    Credits = 2,
-                    Title  = "Poetry",
-                    DepartmentId = 2
-                }
-            };
-            return View(courses);
+            this.logger = logger;
+            this.configuration = configuration;
+            this.urlBase = this.configuration["apiConfig:baseURL"];
         }
 
-        // GET: CourseController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Index()   
         {
+            CourseListResponse courseList = new CourseListResponse();
+            try
+            {
+                using (var httpclient = new HttpClient(this.handler)) 
+                {
+                    var response = await httpclient.GetAsync($"{ this.urlBase }/Course");
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string apiResult = await response.Content.ReadAsStringAsync();
+
+                        courseList = JsonConvert.DeserializeObject<CourseListResponse>(apiResult);
+                    }
+                    else
+                    {
+                        //ponemos la logica a hacer
+                    }
+                }
+                return View(courseList.data);
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError("Error obteniendo los cursos.", ex.ToString());
+            }
             return View();
         }
 
-        // GET: CourseController/Create
+
+        public async Task<ActionResult> Details(int id)
+        {
+            CourseDetailResponse detailResponse = new CourseDetailResponse();
+            try
+            {
+                using (var httpclient = new HttpClient(this.handler))
+                {
+                    var response = await httpclient.GetAsync($"{this.urlBase}/Course/{ id }");
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string apiResult = await response.Content.ReadAsStringAsync();
+
+                        detailResponse = JsonConvert.DeserializeObject<CourseDetailResponse>(apiResult);
+                    }
+                    else
+                    {
+                        //ponemos la logica a hacer
+                    }
+                }
+                return View(detailResponse.data);
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError("Error obteniendo el detalle del curso.", ex.ToString());
+            }
+            return View();
+        }
+
+
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: CourseController/Create
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Create(CourseCreateRequest createRequest)
         {
+            CommandResponse commandResponse = new CommandResponse();
             try
             {
-                return RedirectToAction(nameof(Index));
+                createRequest.CreationDate = DateTime.Now;
+                createRequest.CreationUser = 1;
+
+                using (var httpclient = new HttpClient(this.handler))
+                {
+                    StringContent request = new StringContent(JsonConvert.SerializeObject(createRequest), Encoding.UTF8, "application/Json");
+                    var response = await httpclient.PostAsync($"{this.urlBase}/Course/SaveCourse", request);
+
+                    string apiResult = await response.Content.ReadAsStringAsync();
+
+                    commandResponse = JsonConvert.DeserializeObject<CommandResponse>(apiResult);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return RedirectToAction(nameof(Index));
+                    }
+                    else
+                    {
+                        ViewBag.Message = commandResponse.message;
+                        return View();
+                    }
+                }
             }
             catch
             {
@@ -72,20 +128,66 @@ namespace LtmApp.Web.Controllers
             }
         }
 
-        // GET: CourseController/Edit/5
-        public ActionResult Edit(int id)
+
+        public async Task<ActionResult> Edit(int id)
         {
+            CourseDetailResponse detailResponse = new CourseDetailResponse();
+            try
+            {
+                using (var httpclient = new HttpClient(this.handler))
+                {
+                    var response = await httpclient.GetAsync($"{this.urlBase}/Course/{id}");
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string apiResult = await response.Content.ReadAsStringAsync();
+
+                        detailResponse = JsonConvert.DeserializeObject<CourseDetailResponse>(apiResult);
+                    }
+                    else
+                    {
+                        //ponemos la logica a hacer
+                    }
+                }
+                return View(detailResponse.data);
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError("Error obteniendo el detalle del curso.", ex.ToString());
+            }
             return View();
         }
 
-        // POST: CourseController/Edit/5
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(CourseUpdateRequest courseUpdate)
         {
+            CommandResponse commandResponse = new CommandResponse();
             try
             {
-                return RedirectToAction(nameof(Index));
+                courseUpdate.ModifyDate = DateTime.Now;
+                courseUpdate.UserMod = 1;
+
+                using (var httpclient = new HttpClient(this.handler))
+                { 
+                    StringContent request = new StringContent(JsonConvert.SerializeObject(courseUpdate),Encoding.UTF8, "application/Json");
+                    var response = await httpclient.PutAsync($"{this.urlBase}/Course/UpdateCourse", request);
+
+                    string apiResult = await response.Content.ReadAsStringAsync();
+
+                    commandResponse = JsonConvert.DeserializeObject<CommandResponse>(apiResult);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return RedirectToAction(nameof(Index));
+                    }
+                    else
+                    {
+                        ViewBag.Message = commandResponse.message;
+                        return View();
+                    }
+                }
+     
             }
             catch
             {
@@ -93,25 +195,5 @@ namespace LtmApp.Web.Controllers
             }
         }
 
-        // GET: CourseController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: CourseController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

@@ -1,5 +1,3 @@
-using LtmApp.DAL.Interfaces;
-using LtmApp.DAL.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,9 +20,7 @@ namespace LtmApp.Web
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddTransient<ICourseRepository, CourseRepository>();
             services.AddControllersWithViews();
-
 
         }
 
