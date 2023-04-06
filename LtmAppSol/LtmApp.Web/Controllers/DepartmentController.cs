@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using LtmApp.Web.Models.Requests;
 using System.Text;
+using LtmApp.Web.ApiServices.Interfaces;
 
 namespace LtmApp.Web.Controllers
 {
@@ -19,12 +20,16 @@ namespace LtmApp.Web.Controllers
         HttpClientHandler handler = new HttpClientHandler();
         private readonly ILogger<DepartmentController> logger;
         private readonly IConfiguration configuration;
+        private readonly IDepartmentApiService departmentApiService;
         private readonly string urlBase;
 
-        public DepartmentController(ILogger<DepartmentController> logger, IConfiguration configuration)
+        public DepartmentController(ILogger<DepartmentController> logger, 
+                                    IConfiguration configuration, 
+                                    IDepartmentApiService departmentApiService)
         {
             this.logger = logger;
             this.configuration = configuration;
+            this.departmentApiService = departmentApiService;
             this.urlBase = this.configuration["apiConfig:baseUrl"];
         }
         public async Task<ActionResult> Index()
@@ -32,19 +37,7 @@ namespace LtmApp.Web.Controllers
             DepartmentListResponse departmentList = new DepartmentListResponse();
             try
             {
-                using (var httpClient = new HttpClient(this.handler))
-                {
-                    var response = await httpClient.GetAsync($"{this.urlBase}/Department");
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string apiResult = await response.Content.ReadAsStringAsync();
-                        departmentList = JsonConvert.DeserializeObject<DepartmentListResponse>(apiResult);
-                    }
-                    else
-                    {
-
-                    }
-                }
+                departmentList = await this.departmentApiService.GetDepartments();
                 return View(departmentList.data);
             }
             catch (Exception ex)
@@ -58,19 +51,7 @@ namespace LtmApp.Web.Controllers
             DepartmentDetailResponse detailResponse = new DepartmentDetailResponse();
             try
             {
-                using (var httpClient = new HttpClient(this.handler))
-                {
-                    var response = await httpClient.GetAsync($"{this.urlBase}/Department/{id}");
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string apiResult = await response.Content.ReadAsStringAsync();
-                        detailResponse = JsonConvert.DeserializeObject<DepartmentDetailResponse>(apiResult);
-                    }
-                    else
-                    {
-
-                    }
-                }
+                detailResponse = await this.departmentApiService.GetDepartment(id);
                 return View(detailResponse.data);
             }
             catch (Exception ex)
@@ -91,22 +72,15 @@ namespace LtmApp.Web.Controllers
             CommadResponse commadResponse = new CommadResponse();
             try
             {
-                using (var httpClient = new HttpClient(this.handler))
+                commadResponse =  await this.departmentApiService.Save(createRequest);
+                if (commadResponse.success)
                 {
-                    StringContent content = new StringContent(JsonConvert.SerializeObject(createRequest), Encoding.UTF8, "application/json");
-                    var response = await httpClient.PostAsync($"{this.urlBase}/Department/SaveDepartment", content);
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    commadResponse = JsonConvert.DeserializeObject<CommadResponse>(apiResponse);
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        return RedirectToAction(nameof(Index));
-                    }
-                    else
-                    {
-                        ViewBag.Message = commadResponse.message;
-                        return View();
-                    }
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    ViewBag.Message = commadResponse.message;
+                    return View();
                 }
             }
             catch
@@ -114,8 +88,6 @@ namespace LtmApp.Web.Controllers
                 return View();
             }
         }
-   
-
 
         public async Task<ActionResult> Edit(int id)
         {
@@ -139,35 +111,28 @@ namespace LtmApp.Web.Controllers
             }
             catch (Exception ex)
             {
-                this.logger.LogError("Error obteniendo el detalle del departamentos", ex.ToString());
+                this.logger.LogError("Error obteniendo el detalle del departamento", ex.ToString());
             }
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(DeparmentUpdateRequest deparmentUpdateRequest)
+        public async Task<ActionResult> Edit(DepartmentUpdateRequest departmentUpdateRequest)
         {
             CommadResponse commadResponse = new CommadResponse();
             try
             {
-                deparmentUpdateRequest.ModifyDate = DateTime.Now;
-                deparmentUpdateRequest.UserMod = 1;
-                using (var httpClient = new HttpClient(this.handler))
+                commadResponse = await this.departmentApiService.Update(departmentUpdateRequest);
+
+                if (commadResponse.success)
                 {
-                    StringContent request = new StringContent(JsonConvert.SerializeObject(deparmentUpdateRequest),Encoding.UTF8,"application/json");
-                    var response = await httpClient.PutAsync($"{this.urlBase}/Department/UpdateDepartment", request);
-                    string apiResult = await response.Content.ReadAsStringAsync();
-                    commadResponse = JsonConvert.DeserializeObject<CommadResponse>(apiResult);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        return RedirectToAction(nameof(Index));
-                    }
-                    else 
-                    {
-                        ViewBag.Message = commadResponse.message;
-                        return View();
-                    }
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    ViewBag.Message = commadResponse.message;
+                    return View();
                 }
             }
             catch

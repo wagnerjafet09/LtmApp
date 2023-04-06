@@ -2,7 +2,7 @@
 
 namespace LtmApp.Web.Models.Requests
 {
-    public class DeparmentUpdateRequest
+    public class DepartmentUpdateRequest
     {
         public int DepartmentID { get; set; }
         public string Name { get; set; }
