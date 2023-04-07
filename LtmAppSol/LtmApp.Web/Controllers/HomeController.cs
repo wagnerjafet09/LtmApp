@@ -1,4 +1,5 @@
-﻿using LtmApp.Web.Models;
+﻿using LtmApp.Web.ApiServices.Interfaces;
+using LtmApp.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,14 +13,17 @@ namespace LtmApp.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ICourseApiService apiService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ICourseApiService apiService)
         {
             _logger = logger;
+            this.apiService = apiService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult>  Index()
         {
+            var course = await this.apiService.GetCourses();
             return View();
         }
 
