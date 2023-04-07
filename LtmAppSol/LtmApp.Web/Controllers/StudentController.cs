@@ -77,7 +77,7 @@ namespace LtmApp.Web.Controllers
 
             try
             {
-                using (var httpClient = new HttpClient(this.handler))
+                /*using (var httpClient = new HttpClient(this.handler))
                 {
                     var response = await httpClient.GetAsync($"{ this.urlBase }/Student/{ id }");
 
@@ -92,7 +92,9 @@ namespace LtmApp.Web.Controllers
                         // Poner x Logica 
                     }
 
-                }
+                }*/
+
+                detailResponse = await this.studentApiService.GetStudent(id);
 
                 return View(detailResponse.data);
             }
@@ -170,7 +172,7 @@ namespace LtmApp.Web.Controllers
 
             try
             {
-                using (var httpClient = new HttpClient(this.handler))
+                /*using (var httpClient = new HttpClient(this.handler))
                 {
                     var response = await httpClient.GetAsync($"{this.urlBase}/Student/{id}");
 
@@ -185,7 +187,9 @@ namespace LtmApp.Web.Controllers
                         // Poner x Logica 
                     }
 
-                }
+                }*/
+
+                detailResponse = await this.studentApiService.GetStudent(id);
 
                 return View(detailResponse.data);
             }
@@ -205,7 +209,7 @@ namespace LtmApp.Web.Controllers
             CommadResponse commadResponse = new CommadResponse();
             try
             {
-                studentUpdate.ModifyDate = DateTime.Now;
+                /*studentUpdate.ModifyDate = DateTime.Now;
                 studentUpdate.UserMod = 1;
 
                 using (var httpClient = new HttpClient(this.handler))
@@ -227,8 +231,19 @@ namespace LtmApp.Web.Controllers
                         ViewBag.Message = commadResponse.message;
                         return View();
                     }
-                }
+                }*/
 
+                commadResponse = await this.studentApiService.Update(studentUpdate);
+
+                if (commadResponse.success)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    ViewBag.Message = commadResponse.message;
+                    return View();
+                }
             }
             catch
             {

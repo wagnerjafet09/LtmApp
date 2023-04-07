@@ -28,9 +28,31 @@ namespace LtmApp.Web.ApiServices.Services
             this.urlBase = this.configuration["apiConfig:baseUrl"];
         }
 
-        public Task<StudentDetailResponse> GetStudent(int id)
+        public async Task<StudentDetailResponse> GetStudent(int id)
         {
-            throw new System.NotImplementedException();
+            StudentDetailResponse detailResponse = new StudentDetailResponse();
+            try
+            {
+                using (var httpClient = this.httpClientFactory.CreateClient())
+                {
+                    using (var resp = await httpClient.GetAsync($"{this.urlBase}/Student/{id}"))
+                    {
+                        if (resp.IsSuccessStatusCode)
+                        {
+                            string apiResult = await resp.Content.ReadAsStringAsync();
+                            detailResponse = JsonConvert.DeserializeObject<StudentDetailResponse>(apiResult);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                detailResponse.success = false;
+                detailResponse.message = this.configuration["studentMessages:errorGetStudent"];
+                this.logger.LogError($"{detailResponse.message} : {ex.Message}", ex.ToString());
+            };
+            return detailResponse;
+
         }
 
         public async Task<StudentListResponse> GetStudents()
@@ -97,9 +119,42 @@ namespace LtmApp.Web.ApiServices.Services
             return commadResponse;
         }
 
-        public Task<CommadResponse> Update(StudentUpdateRequest studentUpdate)
+        public async Task<CommadResponse> Update(StudentUpdateRequest studentUpdate)
         {
-            throw new System.NotImplementedException();
+            CommadResponse commadResponse = new CommadResponse();
+            try
+            {
+                studentUpdate.ModifyDate = DateTime.Now;
+                studentUpdate.UserMod = 1;
+
+                StringContent request = new StringContent(JsonConvert.SerializeObject(studentUpdate), Encoding.UTF8, "application/json");
+
+                using (var httpClient = this.httpClientFactory.CreateClient())
+                {
+                    httpClient.BaseAddress = new Uri(this.urlBase);
+                    using (var resp = await httpClient.PutAsync($"{this.urlBase}/Student/UpdateStudent", request))
+                    {
+                        if (resp.IsSuccessStatusCode)
+                        {
+                            string apiResult = await resp.Content.ReadAsStringAsync();
+
+                            commadResponse = JsonConvert.DeserializeObject<CommadResponse>(apiResult);
+                        }
+                        else
+                        {
+                            commadResponse.success = false;
+                            commadResponse.message = this.configuration["studentMessages:errorUpdateStudents"];
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                commadResponse.success = false;
+                commadResponse.message = this.configuration["studentMessages:errorUpdateStudents"];
+                this.logger.LogError($"{commadResponse.message} : {ex.Message}", ex.ToString());
+            }
+            return commadResponse;
         }
     }
 }
