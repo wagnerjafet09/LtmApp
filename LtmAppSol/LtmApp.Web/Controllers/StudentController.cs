@@ -1,4 +1,5 @@
-﻿using LtmApp.Web.Models;
+﻿using LtmApp.Web.ApiServices.Interfaces;
+using LtmApp.Web.Models;
 using LtmApp.Web.Models.Requests;
 using LtmApp.Web.Models.Responses;
 using Microsoft.AspNetCore.Http;
@@ -19,12 +20,16 @@ namespace LtmApp.Web.Controllers
         HttpClientHandler handler = new HttpClientHandler();
         private readonly ILogger<StudentController> logger;
         private readonly IConfiguration configuration;
+        private readonly IStudentApiService studentApiService;
         private readonly string urlBase;
 
-        public StudentController(ILogger<StudentController> logger, IConfiguration configuration)
+        public StudentController(ILogger<StudentController> logger, 
+                                    IConfiguration configuration,
+                                    IStudentApiService studentApiService)
         {
             this.logger = logger;
             this.configuration = configuration;
+            this.studentApiService = studentApiService;
             this.urlBase = this.configuration["apiConfig:baseUrl"];
         }
 
@@ -35,7 +40,7 @@ namespace LtmApp.Web.Controllers
 
             try
             {
-                using (var httpClient = new HttpClient(this.handler)) 
+                /*using (var httpClient = new HttpClient(this.handler)) 
                 {
                     var response = await httpClient.GetAsync($"{ this.urlBase }/Student");
 
@@ -50,7 +55,8 @@ namespace LtmApp.Web.Controllers
                         // Poner x Logica 
                     }
 
-                }
+                }*/
+                studentList = await this.studentApiService.GetStudents();
 
                 return View(studentList.data);
 
@@ -113,7 +119,7 @@ namespace LtmApp.Web.Controllers
 
             try
             {
-                createRequest.CreationDate = DateTime.Now;
+                /*createRequest.CreationDate = DateTime.Now;
                 createRequest.CreationUser = 1;
 
                 using (var httpClient = new HttpClient(this.handler))
@@ -135,6 +141,18 @@ namespace LtmApp.Web.Controllers
                         ViewBag.Message = commadResponse.message;
                         return View();
                     }
+                }*/
+
+                commadResponse = await this.studentApiService.Save(createRequest);
+
+                if (commadResponse.success) 
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    ViewBag.Message = commadResponse.message;
+                    return View();
                 }
 
             }

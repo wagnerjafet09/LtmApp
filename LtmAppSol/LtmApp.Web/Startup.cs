@@ -1,3 +1,5 @@
+using LtmApp.Web.ApiServices.Interfaces;
+using LtmApp.Web.ApiServices.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +24,15 @@ namespace LtmApp.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Register http Client
+            services.AddHttpClient();
+
+
+            // Register api services
+            services.AddTransient<IStudentApiService, StudentApiService>();
+
+
+
             services.AddControllersWithViews();
         }
 
