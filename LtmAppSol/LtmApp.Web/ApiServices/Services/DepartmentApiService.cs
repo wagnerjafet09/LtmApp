@@ -117,9 +117,6 @@ namespace LtmApp.Web.ApiServices.Services
                 commadResponse.success = false;
                 commadResponse.message = this.configuration["departmentMessages:errorSaveDepartment"];
                 this.logger.LogError($" {commadResponse.message} : {ex.Message}", ex.ToString());
-
-
-
             }
             return commadResponse;
         }

@@ -5,7 +5,7 @@ namespace LtmApp.BL.Dtos
 {
     public class DepartmentAddDto : DepartmentBaseDto
     {
-        public DateTime CreateDate { get; set; }
-        public int CreateUser { get; set; }
+        public DateTime CreationDate { get; set; }
+        public int CreationUser { get; set; }
     }
 }

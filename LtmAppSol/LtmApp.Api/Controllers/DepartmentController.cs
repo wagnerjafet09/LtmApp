@@ -46,7 +46,6 @@ namespace LtmApp.Api.Controllers
         {
             var result = this.departmentService.SaveDepartment(department);
             return Ok(result);
-            
         }
 
         // PUT api/<DepartmentController>

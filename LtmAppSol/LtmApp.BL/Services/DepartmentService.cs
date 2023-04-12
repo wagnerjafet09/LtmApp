@@ -111,8 +111,8 @@ namespace LtmApp.BL.Services
                 {
                     Administrator = departmentAdd.Administrator,
                     Budget = departmentAdd.Budget,
-                    CreationDate = departmentAdd.CreateDate,
-                    CreationUser = departmentAdd.CreateUser,
+                    CreationDate = departmentAdd.CreationDate,
+                    CreationUser = departmentAdd.CreationUser,
                     Name = departmentAdd.Name,
                     StartDate = departmentAdd.StartDate
 
